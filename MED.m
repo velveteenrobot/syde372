@@ -2,7 +2,6 @@ function [ classified_class ] = MED(means, range1, range2)
 
 %going to output matrix of classified points 
 %then can just draw contour easily
-means
 classified_class = zeros(length(range1), length(range2));
 
 dist_from_means = zeros(1, size(means, 1));

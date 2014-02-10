@@ -52,3 +52,5 @@ for i=1:size(case2_classes, 2)
 end 
 
 confusion
+
+error = (sum(confusion(:)) - trace(confusion)) / sum(confusion(:))
