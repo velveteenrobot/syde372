@@ -8,6 +8,9 @@ SIGMA2 = [8 0; 0 4];
 X1 = mvnrnd(MU1,SIGMA1,200);
 X2 = mvnrnd(MU2,SIGMA2,200);
 
+SIGMA1 = cov(X1);
+SIGMA2 = cov(X2);
+
 figure;
 hold on;
 

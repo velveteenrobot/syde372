@@ -8,6 +8,9 @@ SIGMA2 = [8 0; 0 4];
 X1 = mvnrnd(MU1,SIGMA1,200);
 X2 = mvnrnd(MU2,SIGMA2,200);
 
+SIGMA1 = cov(X1);
+SIGMA2 = cov(X2);
+
 range1 = [-5:0.1:20]
 range2 = [-5:0.1:20]
 
@@ -27,10 +30,10 @@ b_theta = atan2(b_vectors(2,1), b_vectors(1,1));
 plot_ellipse(MU2(1), MU2(2), b_theta, sqrt(b_values(1,1)),sqrt(b_values(2,2)));
 
 map_1 = MAP([MU1; MU2], range1, range2, cat(3,SIGMA1,SIGMA2), [0.5 0.5]);
-contour(range1, range2, map_1', [1 1], '--r');
+contour(range1, range2, map_1', [1 1], '--b');
 hold on;
 micd_1 = MICD([MU1; MU2], range1, range2, cat(3,SIGMA1,SIGMA2));
-contour(range1, range2, micd_1', [1 1], '--r');
+contour(range1, range2, micd_1', [1 1], '--g');
 hold on;
 med_1 = MED([MU1; MU2], range1, range2);
 contour(range1, range2, med_1', [1 1], '--r');

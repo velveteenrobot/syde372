@@ -11,6 +11,10 @@ X1 = mvnrnd(MU1,SIGMA1,200);
 X2 = mvnrnd(MU2,SIGMA2,200);
 X3 = mvnrnd(MU3, SIGMA3, 200);
 
+SIGMA1 = cov(X1);
+SIGMA2 = cov(X2);
+SIGMA3 = cov(X3);
+
 range1 = [-5:0.1:20]
 range2 = [-5:0.1:20]
 
