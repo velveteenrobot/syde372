@@ -29,3 +29,18 @@ plot_ellipse(MU2(1), MU2(2), b_theta, sqrt(b_values(1,1)),sqrt(b_values(2,2)));
 micd_1 = MICD([MU1; MU2], range1, range2, cat(3,SIGMA1,SIGMA2));
 contour(range1, range2, micd_1', [1 1], '--r');
 hold on;
+
+case1_classes = {X1, X2};
+confusion = zeros(size(case1_classes, 2));
+
+for i=1:size(case1_classes, 2)
+    current_class = cell2mat(case1_classes(i));
+    for j=1:size(current_class, 1)
+
+       predicted = MICD([MU1; MU2], current_class(j,1), current_class(j,2), cat(3, SIGMA1, SIGMA2));
+   
+       confusion(i,predicted) = confusion(i,predicted) + 1;
+    end
+end 
+
+confusion

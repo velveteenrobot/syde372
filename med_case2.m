@@ -37,3 +37,18 @@ plot_ellipse(MU3(1), MU3(2), e_theta, sqrt(e_values(1,1)),sqrt(e_values(2,2)));
 med_1 = MED([MU1; MU2; MU3], range1, range2);
 contour(range1, range2, med_1', 2, '--r');
 hold on;
+
+case2_classes = {X1, X2, X3};
+confusion = zeros(size(case2_classes, 2));
+
+for i=1:size(case2_classes, 2)
+    current_class = cell2mat(case2_classes(i));
+    for j=1:size(current_class, 1)
+
+       predicted = MED([MU1; MU2; MU3], current_class(j,1), current_class(j,2));
+   
+       confusion(i,predicted) = confusion(i,predicted) + 1;
+    end
+end 
+
+confusion
