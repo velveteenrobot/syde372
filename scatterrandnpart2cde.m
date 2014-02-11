@@ -17,13 +17,13 @@ z5 = repmat(MU5,150,1) + randn(150,2)*R5;
 figure;
 title('Clustering: Case2')
 hold on;
-scatter(z3(:,1),z3(:,2),10);
+scatter(z3(:,1),z3(:,2),10, 'b');
 hold off;
 hold on;
-scatter(z4(:,1),z4(:,2),10);
+scatter(z4(:,1),z4(:,2),10, 'r');
 hold off;
 hold on 
-scatter(z5(:,1),z5(:,2),10);
+scatter(z5(:,1),z5(:,2),10, 'g');
 hold off;
 legend('Class C', 'Class D','Class E');
 

@@ -43,7 +43,7 @@ plot_ellipse(MU2(1), MU2(2), d_theta, sqrt(d_values(1,1)),sqrt(d_values(2,2)));
 e_theta = atan2(e_vectors(2,1), e_vectors(1,1));
 plot_ellipse(MU3(1), MU3(2), e_theta, sqrt(e_values(1,1)),sqrt(e_values(2,2)));
 
-map_1 = MAP([MU1; MU2; MU3], range1, range2, cat(3, SIGMA1, SIGMA2, SIGMA3), [2/9 4/9 1/3]);
+map_1 = MAP([MU1; MU2; MU3], range1, range2, cat(3, SIGMA1, SIGMA2, SIGMA3), [0.2222 0.4444 0.3333]);
 contour(range1, range2, map_1', 2, '--r');
 hold on;
 

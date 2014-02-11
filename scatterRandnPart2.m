@@ -16,9 +16,9 @@ figure;
 title('Clustering: Case1')
 hold on;
 
-scatter(z1(:,1),z1(:,2),10);
+scatter(z1(:,1),z1(:,2),10,'b');
 hold off
 hold on
-scatter(z2(:,1),z2(:,2),10);
+scatter(z2(:,1),z2(:,2),10, 'r');
 hold off
 legend('Class A', 'Class B');
