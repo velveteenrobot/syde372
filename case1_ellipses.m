@@ -5,17 +5,9 @@ MU1 = [5 10];
 SIGMA1 = [8 0; 0 4];
 MU2 = [10 15];
 SIGMA2 = [8 0; 0 4];
-% X1 = mvnrnd(MU1,SIGMA1,200);
-% X2 = mvnrnd(MU2,SIGMA2,200);
-% 
-% SIGMA1 = cov(X1);
-% SIGMA2 = cov(X2);
 
 R1 = chol(SIGMA1);
 R2= chol(SIGMA2);
-
-
-%X=[repmat(MU1,200,1) + randn(200,2)*R1,repmat(MU2,200,1) + randn(200,2)*R2];
 
 X1 = repmat(MU1,200,1) + randn(200,2)*R1;
 X2 = repmat(MU2,200,1) + randn(200,2)*R2;
@@ -30,8 +22,8 @@ hold on;
 scatter(X1(:,1), X1(:,2), 10, 'b');
 scatter(X2(:,1), X2(:,2), 10, 'r');
 
-[a_vectors, a_values] = eigs(SIGMA1)
-[b_vectors, b_values] = eigs(SIGMA2)
+[a_vectors, a_values] = eigs(SIGMA1);
+[b_vectors, b_values] = eigs(SIGMA2);
 
 legend('Class A', 'Class B');
 

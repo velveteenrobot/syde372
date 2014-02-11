@@ -5,11 +5,16 @@ MU1 = [5 10];
 SIGMA1 = [8 0; 0 4];
 MU2 = [10 15];
 SIGMA2 = [8 0; 0 4];
-X1 = mvnrnd(MU1,SIGMA1,200);
-X2 = mvnrnd(MU2,SIGMA2,200);
+
+R1 = chol(SIGMA1);
+R2= chol(SIGMA2);
+
+X1 = repmat(MU1,200,1) + randn(200,2)*R1;
+X2 = repmat(MU2,200,1) + randn(200,2)*R2;
 
 SIGMA1 = cov(X1);
 SIGMA2 = cov(X2);
+
 
 range1 = [-5:0.1:20]
 range2 = [-5:0.1:20]

@@ -1,15 +1,14 @@
-%
-{
-    kNN_FS
-    Function used to classify via a kNN algorithm
-    
-    output: Matrix Y
-    inputs :
-                x: range of points in dimension 1
-                y: range of points in dimension 2
-                k: the k in knn -- constant of which we find the mean to use as a prototype
-                varargin: list of arguments, contains all the classes we need to classify -- note this is a native argument for matlab. Everything after the k dimension goes into the varargin list.
-}
+% {
+%     kNN_FS
+%     Function used to classify via a kNN algorithm
+%     
+%     output: Matrix Y
+%     inputs :
+%                 x: range of points in dimension 1
+%                 y: range of points in dimension 2
+%                 k: the k in knn -- constant of which we find the mean to use as a prototype
+%                 varargin: list of arguments, contains all the classes we need to classify -- note this is a native argument for matlab. Everything after the k dimension goes into the varargin list.
+% }
 
 
 
