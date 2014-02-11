@@ -32,8 +32,8 @@ scatter(X3(:,1), X3(:,2), 10, 'g');
 
 kNN_1 = kNN_FS(range1, range2, 1, X1, X2, X3);
 kNN_5 = kNN_FS(range1, range2, 5, X1, X2, X3);
-contour(range1, range2, kNN_1', 2, '--r');
-contour(range1, range2, kNN_5', 2, '--b');
+contour(range1, range2, kNN_1', 2, 'r');
+contour(range1, range2, kNN_5', 2, 'b');
 legend('Class C', 'Class D', 'Class E', 'k = 1', 'k = 5');
 hold on;
 
