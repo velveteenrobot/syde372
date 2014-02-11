@@ -63,8 +63,8 @@ for i=1:size(case2_classes, 2)
     current_class = cell2mat(case2_classes(i));
     for j=1:size(current_class, 1)
 
-       predicted_1 = kNN_FS(current_class(j,1), current_class(j,2), 1, X1_test, X2_test, X3_test);
-       predicted_2 = kNN_FS(current_class(j,1), current_class(j,2), 5, X1_test, X2_test, X3_test);
+       predicted_1 = kNN_FS(current_class(j,1), current_class(j,2), 1, X1, X2, X3);
+       predicted_2 = kNN_FS(current_class(j,1), current_class(j,2), 5, X1, X2, X3);
        confusion_1(i,predicted_1) = confusion_1(i,predicted_1) + 1;
        confusion_2(i,predicted_2) = confusion_2(i,predicted_2) + 1;
     end
