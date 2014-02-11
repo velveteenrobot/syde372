@@ -15,7 +15,6 @@ X2 = repmat(MU2,200,1) + randn(200,2)*R2;
 SIGMA1 = cov(X1);
 SIGMA2 = cov(X2);
 
-
 range1 = [-5:0.1:20]
 range2 = [-5:0.1:20]
 
