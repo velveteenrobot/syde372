@@ -7,13 +7,18 @@ R1 = chol(SIGMA1);
 R2= chol(SIGMA2);
 
 
-z=[repmat(MU1,200,1) + randn(200,2)*R1,repmat(MU2,200,1) + randn(200,2)*R2];
 
 z1 = repmat(MU1,200,1) + randn(200,2)*R1;
 z2 = repmat(MU2,200,1) + randn(200,2)*R2;
 
 
-figure
+figure;
+title('Clustering: Case1')
+hold on;
+
 scatter(z1(:,1),z1(:,2),10);
-hold
+hold off
+hold on
 scatter(z2(:,1),z2(:,2),10);
+hold off
+legend('Class A', 'Class B');
