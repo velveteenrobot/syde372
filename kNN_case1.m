@@ -42,7 +42,11 @@ plot_ellipse(MU1(1), MU1(2), a_theta, sqrt(a_values(1,1)), sqrt(a_values(2,2)));
 b_theta = atan2(b_vectors(2,1), b_vectors(1,1));
 plot_ellipse(MU2(1), MU2(2), b_theta, sqrt(b_values(1,1)),sqrt(b_values(2,2)));
 
-case1_classes = {X1, X2};
+
+X1_test = repmat(MU1,200,1) + randn(200,2)*R1;
+X2_test = repmat(MU2,200,1) + randn(200,2)*R2;
+
+case1_classes = {X1_test, X2_test};
 confusion_1 = zeros(size(case1_classes, 2));
 confusion_2 = zeros(size(case1_classes, 2));
 
@@ -50,8 +54,8 @@ for i=1:size(case1_classes, 2)
     current_class = cell2mat(case1_classes(i));
     for j=1:size(current_class, 1)
 
-       predicted_1 = kNN_FS(current_class(j,1), current_class(j,2), 1, X1, X2);
-       predicted_2 = kNN_FS(current_class(j,1), current_class(j,2), 5, X1, X2);
+       predicted_1 = kNN_FS(current_class(j,1), current_class(j,2), 1, X1_test, X2_test);
+       predicted_2 = kNN_FS(current_class(j,1), current_class(j,2), 5, X1_test, X2_test);
        confusion_1(i,predicted_1) = confusion_1(i,predicted_1) + 1;
        confusion_2(i,predicted_2) = confusion_2(i,predicted_2) + 1;
     end
