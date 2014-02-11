@@ -12,11 +12,14 @@ X2 = mvnrnd(MU2,SIGMA2,200);
 X3 = mvnrnd(MU3, SIGMA3, 200);
 
 figure;
+title('Clustering: Case 2');
 hold on;
 
 scatter(X1(:,1), X1(:,2), 10, 'b');
 scatter(X2(:,1), X2(:,2), 10, 'r');
 scatter(X3(:,1), X3(:,2), 10, 'g');
+
+legend('Class C', 'Class D', 'Class E');
 
 [c_vectors, c_values] = eigs(SIGMA1);
 [d_vectors, d_values] = eigs(SIGMA2);
