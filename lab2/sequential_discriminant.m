@@ -1,9 +1,5 @@
 function [disc, MED_plots, disc_plot] = sequential_discriminant(step, A, B)
-    % Classifies two labelled clusters with sequential linear discriminants.
-    % TODO: Return error rates.
-    % --
-    % stepSize = resolution of contour for decision boundary
-    % cA, cB = list of classes for evaluation
+
     A_data = A; 
     B_data = B; 
     MED_plots = []
@@ -11,8 +7,6 @@ function [disc, MED_plots, disc_plot] = sequential_discriminant(step, A, B)
     vals = [];
     vals = [A_data; B_data];
   
-
-    %extracts min/max x and y from mixed data
     mins = min(vals);
     maxs = max(vals);
 
@@ -34,8 +28,8 @@ function [disc, MED_plots, disc_plot] = sequential_discriminant(step, A, B)
         A_confusion = [0 0]; B_confusion = [0 0]; 
 
         while(~isempty(A_confusion) && ~isempty(B_confusion))
-            empty = 'Still not empty'
-            iter = iter + 1
+            
+            iter = iter + 1;
             A_prototype = A_data(randi(length(A_data(:,1)),1),:); 
             B_prototype = B_data(randi(length(B_data(:,1)),1),:);
  
@@ -96,7 +90,7 @@ function [disc, MED_plots, disc_plot] = sequential_discriminant(step, A, B)
 
         hold on;
         [ctr, MED_plot] = MED_points('--b', x_vals, y_vals, points,...
-            A_prototype, B_prototype);
+            A_prototype, B_prototype, 1);
         MED_plots = [MED_plots MED_plot]; 
 
         vals2 = [];
@@ -115,11 +109,7 @@ function [disc, MED_plots, disc_plot] = sequential_discriminant(step, A, B)
             error('failed.'); 
         end
 
-        % - Finds all locations in current contour that are 0
-        % - Finds all location in new contour that match our modifier (class)
-        % - Multiplies these together to create a composite contour of
-        %	where our new contour can "fit" in our current contour
-        % - "copies" composite map into our current map.
+        
         disc = ((disc==0).*(vals2)) + disc;
     end
     [c, h] = contour(x_vals, y_vals, disc, 3, '--r');
