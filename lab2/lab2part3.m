@@ -1,0 +1,41 @@
+clear;
+clc;
+load lab2_2;
+
+%make the objects for the class
+cA = dataClass(al,'b');
+cB = dataClass(bl,'g');
+cC = dataClass(cl,'r');
+
+%learn all the stuffs
+cA.mean = learning.learnMean(cA);
+cB.mean = learning.learnMean(cB);
+cC.mean = learning.learnMean(cC);
+
+
+cA.covariance = learning.learnCovariance(cA);
+cB.covariance = learning.learnCovariance(cB);
+cC.covariance = learning.learnCovariance(cC);
+
+figure()
+plotClassOnFigure(cA);
+plotClassOnFigure(cB);
+plotClassOnFigure(cC);
+hold on;
+contour = EstimationTwo.drawMLContour(1,cA,cB,cC);
+title('Parametric 2D classification');
+h = legend('Class A points', 'Class B points', 'Class C points', 'ML Classifier');
+
+stepSize = 1.50;
+windowSize = 650;
+windowVariance = 400;
+
+figure;
+plotClassOnFigure(cA);
+plotClassOnFigure(cB);
+plotClassOnFigure(cC);
+hold on;
+[pdf, xVs,yVs] = EstimationTwo.parzenEstimation(stepSize, windowSize, windowVariance,cA,cB,cC);
+contour2 = EstimationTwo.drawParzenML('k', yVs, xVs, pdf);
+title('Non-Parametric 2D classification');
+h2 = legend('Class A points', 'Class B points', 'Class C points', 'Parzen Classifier');
