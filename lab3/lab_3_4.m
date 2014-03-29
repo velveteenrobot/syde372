@@ -1,5 +1,6 @@
 %From Sonnu's Stuff
-clear;
+clear all;
+close all;
 clc;
 load feat.mat;
 c8 = Confusion.convertFeatureToClass(f8); % create classes for the n=8 data;
@@ -47,3 +48,9 @@ end
 cimage = ctr;
 
 imagesc(cimage);
+
+colorbar('YTickLabel',...
+    {'Cloth', 'Cotton', 'Grass', 'Pigskin', 'Wood', 'Cork', 'Paper',... 
+    'Stone', 'Raiffa', 'Face'});
+ 
+ 
