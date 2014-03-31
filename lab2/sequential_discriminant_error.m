@@ -178,11 +178,6 @@ function [disc, MED_plots, disc_plot, A_confusion, B_confusion] = sequential_dis
                 error('failed.'); 
             end
 
-            % - Finds all locations in current contour that are 0
-            % - Finds all location in new contour that match our modifier (class)
-            % - Multiplies these together to create a composite contour of
-            %	where our new contour can "fit" in our current contour
-            % - "copies" composite map into our current map.
             
             disc = ((disc==0).*(vals2)) + disc;
             
