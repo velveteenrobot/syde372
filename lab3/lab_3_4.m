@@ -93,10 +93,17 @@ maxU = max(U);
 % line(f32(1,index2),f32(2,index2),'linestyle','none',...
 %      'marker', '*','color','r');
 
+colors = [];
+for i = 1:10
+    colors = [colors; rand(1,3)];
+end
+
+colors
+
 for i = 1 : 10
     idx = find(U(i,:)== maxU);
     line(centroids(i,1),centroids(i,2),'linestyle','none',...
-     'marker','*','color',rand(1,3));
+     'marker','*','color',colors(i,:));
 end
 
 title('Fuzzy K-means Prototypesfor K = 10, b = 2');
@@ -107,7 +114,7 @@ figure;
 for i = 1 : 10
     idx = find(U(i,:)== maxU);
     line(f32(1,idx),f32(2,idx),'linestyle','none',...
-     'marker','*','color',rand(1,3));
+     'marker','*','color',colors(i,:));
 end 
  
 title('Fuzzy K-means for K = 10, b = 2');
